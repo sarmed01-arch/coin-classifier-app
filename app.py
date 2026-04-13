@@ -1,5 +1,7 @@
 import streamlit as st
 import torch
+import os
+import gdown
 from PIL import Image
 from torchvision import transforms
 from model import load_model
@@ -7,7 +9,11 @@ from model import load_model
 st.title("Clasificador de Monedas")
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-MODEL_PATH = "models/best_coinnet_local.pth"
+MODEL_PATH = "best_coinnet_local.pth"
+
+if not os.path.exists(MODEL_PATH):
+    url = "https://drive.google.com/uc?id=1Chh-2AsTSVUU7eA0mrkcuif80TLrWarR"
+    gdown.download(url, MODEL_PATH, quiet=False)
 
 @st.cache_resource
 def get_model():
