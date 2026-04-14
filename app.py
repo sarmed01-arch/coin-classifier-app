@@ -13,7 +13,7 @@ MODEL_PATH = "best_coinnet_local.pth"
 
 if not os.path.exists(MODEL_PATH):
     url = "https://drive.google.com/uc?id=1Chh-2AsTSVUU7eA0mrkcuif80TLrWarR"
-    gdown.download(url, MODEL_PATH, quiet=False)
+    gdown.download(url, MODEL_PATH, quiet=False, fuzzy=True)
 
 @st.cache_resource
 def get_model():
