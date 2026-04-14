@@ -12,7 +12,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 MODEL_PATH = "best_coinnet_local.pth"
 
 if not os.path.exists(MODEL_PATH):
-    url = "https://drive.google.com/uc?id=1Chh-2AsTSVUU7eA0mrkcuif80TLrWarR"
+    url = "https://drive.google.com/uc?export=download&id=1Chh-2AsTSVUU7eA0mrkcuif80TLrWarR"
     gdown.download(url, MODEL_PATH, quiet=False)
 
 @st.cache_resource
